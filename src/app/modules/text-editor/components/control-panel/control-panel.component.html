@@ -1,0 +1,7 @@
+<div class="editor-actions">
+  <app-control-panel-action-group
+    class="action-group"
+    *ngFor="let group of groups | keyvalue"
+    [plugins]="group.value"
+  ></app-control-panel-action-group>
+</div>

@@ -1,0 +1,35 @@
+.synonym-list {
+  position: absolute;
+  background: #ffffff;
+  border: 1px solid #bebebe;
+  box-shadow: 1px 1px 1px #bebebe;
+}
+
+ul, li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  min-width: 150px;
+}
+
+button {
+  background: none;
+  border: none;
+  width: 100%;
+  padding: 5px 15px 5px 15px;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+button:hover {
+  background: #f1f0f0;
+}
+
+.title {
+  background-color: #e9e9e9;
+  border-bottom: 1px solid #ccc;
+  font-size: 14px;
+  padding: 4px;
+}

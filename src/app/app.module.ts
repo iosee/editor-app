@@ -1,22 +1,22 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { FileComponent } from './file/file.component';
-import { ControlPanelComponent } from './control-panel/control-panel.component';
-import { HeaderComponent } from './header/header.component';
+import { HeaderComponent } from './shared/components/header/header.component';
 import { FormsModule } from '@angular/forms';
-import { TextService } from './text-service/text.service';
+import { TextService } from './shared/services/text-service/text.service';
+import { BodyComponent } from './shared/components/body/body.component';
+import { TxEditorModule } from './modules/text-editor/text-editor.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FileComponent,
-    ControlPanelComponent,
-    HeaderComponent
+    HeaderComponent,
+    BodyComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    TxEditorModule
   ],
   providers: [TextService],
   bootstrap: [AppComponent]

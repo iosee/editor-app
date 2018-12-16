@@ -1,0 +1,23 @@
+:host {
+  padding-top: 5px;
+  background-color: #f1f0f0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.tip {
+  width: 640px;
+  background-color: rgb(255, 244, 117);
+  border: 1px solid #e4dede;
+  padding: 8px 15px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.tip i {
+  color: rgba(0, 0, 0, .8);
+  margin-right: 10px;
+}

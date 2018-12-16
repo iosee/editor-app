@@ -1,0 +1,8 @@
+<div class="synonym-list" [hidden]="!synonyms?.length" #list>
+  <div class="title">Replace with:</div>
+  <ul>
+    <li *ngFor="let synonym of synonyms">
+      <button (click)="onSelect(synonym.word)">{{ synonym.word }}</button>
+    </li>
+  </ul>
+</div>

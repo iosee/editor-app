@@ -1,0 +1,11 @@
+<button class="editor-action-button"
+        [colorPicker]="color"
+        (colorPickerSelect)="onSelect($event)"
+        [cpCancelButton]="true"
+        [cpAlphaChannel]="'disabled'"
+        [cpOKButton]="true"
+        [style.color]="color"
+>
+  <i class="material-icons">{{icon}}</i>
+</button>
+
