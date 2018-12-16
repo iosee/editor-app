@@ -287,6 +287,71 @@ var TxControlPanelComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/modules/text-editor/components/editor-tips/editor-tips.component.css":
+/*!**************************************************************************************!*\
+  !*** ./src/app/modules/text-editor/components/editor-tips/editor-tips.component.css ***!
+  \**************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ":host {\r\n  padding-top: 5px;\r\n  background-color: #f1f0f0;\r\n  display: flex;\r\n  align-items: center;\r\n  flex-direction: column;\r\n}\r\n\r\n.tip {\r\n  width: 640px;\r\n  background-color: rgb(255, 244, 117);\r\n  border: 1px solid #e4dede;\r\n  padding: 8px 15px;\r\n  font-size: 14px;\r\n  display: flex;\r\n  align-items: center;\r\n  box-sizing: border-box;\r\n}\r\n\r\n.tip i {\r\n  color: rgba(0, 0, 0, .8);\r\n  margin-right: 10px;\r\n}\r\n"
+
+/***/ }),
+
+/***/ "./src/app/modules/text-editor/components/editor-tips/editor-tips.component.html":
+/*!***************************************************************************************!*\
+  !*** ./src/app/modules/text-editor/components/editor-tips/editor-tips.component.html ***!
+  \***************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"tip\" *ngFor=\"let tip of tips\"><i class=\"material-icons\">info</i>{{tip}}</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/modules/text-editor/components/editor-tips/editor-tips.component.ts":
+/*!*************************************************************************************!*\
+  !*** ./src/app/modules/text-editor/components/editor-tips/editor-tips.component.ts ***!
+  \*************************************************************************************/
+/*! exports provided: TxEditorTipsComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TxEditorTipsComponent", function() { return TxEditorTipsComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var TxEditorTipsComponent = /** @class */ (function () {
+    function TxEditorTipsComponent() {
+    }
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], TxEditorTipsComponent.prototype, "tips", void 0);
+    TxEditorTipsComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-editor-tips',
+            template: __webpack_require__(/*! ./editor-tips.component.html */ "./src/app/modules/text-editor/components/editor-tips/editor-tips.component.html"),
+            styles: [__webpack_require__(/*! ./editor-tips.component.css */ "./src/app/modules/text-editor/components/editor-tips/editor-tips.component.css")],
+            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush
+        })
+    ], TxEditorTipsComponent);
+    return TxEditorTipsComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/modules/text-editor/components/editor/editor.component.css":
 /*!****************************************************************************!*\
   !*** ./src/app/modules/text-editor/components/editor/editor.component.css ***!
@@ -305,7 +370,7 @@ module.exports = ":host {\r\n  display: flex;\r\n  height: 100%;\r\n  flex-direc
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-control-panel [groups]=\"groups\"></app-control-panel>\r\n<app-file>{{text}}</app-file>\r\n"
+module.exports = "<app-control-panel [groups]=\"groups\"></app-control-panel>\r\n<app-editor-tips [tips]=\"tips\"></app-editor-tips>\r\n<app-file>{{text}}</app-file>\r\n"
 
 /***/ }),
 
@@ -343,6 +408,7 @@ var TxEditorComponent = /** @class */ (function () {
     function TxEditorComponent(plugins) {
         this.plugins = plugins;
         this.text = '';
+        this.tips = ['Select some word to see the list of synonyms (if any)'];
         this.groups = Object(ramda__WEBPACK_IMPORTED_MODULE_1__["groupBy"])(function (plugin) {
             return String(plugin.groupID != null ? plugin.groupID : 0);
         }, this.plugins);
@@ -449,7 +515,8 @@ var TxBodyComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-file',
             template: __webpack_require__(/*! ./file.component.html */ "./src/app/modules/text-editor/components/file/file.component.html"),
-            styles: [__webpack_require__(/*! ./file.component.css */ "./src/app/modules/text-editor/components/file/file.component.css")]
+            styles: [__webpack_require__(/*! ./file.component.css */ "./src/app/modules/text-editor/components/file/file.component.css")],
+            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush
         }),
         __param(1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_common__WEBPACK_IMPORTED_MODULE_1__["DOCUMENT"])),
         __metadata("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_0__["Renderer2"],
@@ -467,7 +534,7 @@ var TxBodyComponent = /** @class */ (function () {
 /*!*********************************************************!*\
   !*** ./src/app/modules/text-editor/components/index.ts ***!
   \*********************************************************/
-/*! exports provided: TxControlPanelActionGroupComponent, TxControlPanelComponent, TxEditorComponent, TxBodyComponent */
+/*! exports provided: TxControlPanelActionGroupComponent, TxControlPanelComponent, TxEditorComponent, TxBodyComponent, TxEditorTipsComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -483,6 +550,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony import */ var _file_file_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./file/file.component */ "./src/app/modules/text-editor/components/file/file.component.ts");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TxBodyComponent", function() { return _file_file_component__WEBPACK_IMPORTED_MODULE_3__["TxBodyComponent"]; });
+
+/* harmony import */ var _editor_tips_editor_tips_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./editor-tips/editor-tips.component */ "./src/app/modules/text-editor/components/editor-tips/editor-tips.component.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TxEditorTipsComponent", function() { return _editor_tips_editor_tips_component__WEBPACK_IMPORTED_MODULE_4__["TxEditorTipsComponent"]; });
+
 
 
 
@@ -554,6 +625,7 @@ var TxColorPickerActionComponent = /** @class */ (function () {
         this.editorStateService = editorStateService;
         this.editorActionService = editorActionService;
         this.icon = 'format_color_text';
+        this.color = '#000000';
         this.commandName = _services__WEBPACK_IMPORTED_MODULE_1__["TxEditorCommand"].ForeColor;
     }
     TxColorPickerActionComponent.prototype.onSelect = function (color) {
@@ -992,7 +1064,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var TX_SYNONYMS_ACTION_MANIFEST = {
     component: _components_synonyms_action_synonyms_action_component__WEBPACK_IMPORTED_MODULE_1__["TxSynonymsActionComponent"],
-    groupID: 100
+    groupID: 3
 };
 var TX_SYNONYMS_ACTION_PROVIDER = Object(_tokens_editor_plugin_manifest_editor_plugin_manifest_token__WEBPACK_IMPORTED_MODULE_0__["providePluginManifest"])(TX_SYNONYMS_ACTION_MANIFEST);
 
@@ -1218,7 +1290,8 @@ var TxEditorModule = /** @class */ (function () {
                 _components__WEBPACK_IMPORTED_MODULE_4__["TxBodyComponent"],
                 _components__WEBPACK_IMPORTED_MODULE_4__["TxControlPanelComponent"],
                 _components__WEBPACK_IMPORTED_MODULE_4__["TxEditorComponent"],
-                _components__WEBPACK_IMPORTED_MODULE_4__["TxControlPanelActionGroupComponent"]
+                _components__WEBPACK_IMPORTED_MODULE_4__["TxControlPanelActionGroupComponent"],
+                _components__WEBPACK_IMPORTED_MODULE_4__["TxEditorTipsComponent"]
             ].concat(_plugins__WEBPACK_IMPORTED_MODULE_5__["TX_PLUGINS_COMPONENTS"]),
             exports: [_components__WEBPACK_IMPORTED_MODULE_4__["TxEditorComponent"]],
             entryComponents: _plugins__WEBPACK_IMPORTED_MODULE_5__["TX_PLUGINS_COMPONENTS"].slice(),
@@ -1380,7 +1453,8 @@ var HeaderComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-header',
             template: __webpack_require__(/*! ./header.component.html */ "./src/app/shared/components/header/header.component.html"),
-            styles: [__webpack_require__(/*! ./header.component.css */ "./src/app/shared/components/header/header.component.css")]
+            styles: [__webpack_require__(/*! ./header.component.css */ "./src/app/shared/components/header/header.component.css")],
+            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush
         })
     ], HeaderComponent);
     return HeaderComponent;
