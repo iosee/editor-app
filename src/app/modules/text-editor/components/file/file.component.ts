@@ -1,11 +1,21 @@
-import { Component, ElementRef, Inject, OnDestroy, OnInit, Renderer2, ViewChild } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  Inject,
+  OnDestroy,
+  OnInit,
+  Renderer2,
+  ViewChild
+} from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { TxEditorStateService } from '../../services';
 
 @Component({
   selector: 'app-file',
   templateUrl: './file.component.html',
-  styleUrls: [ './file.component.css' ]
+  styleUrls: [ './file.component.css' ],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TxBodyComponent implements OnInit, OnDestroy {
   @ViewChild('editableArea') editableArea: ElementRef;
